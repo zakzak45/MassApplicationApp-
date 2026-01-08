@@ -1,0 +1,17 @@
+services:
+  backend:
+    build: ./backend/server
+    container_name: backend
+
+  frontend:
+    build: ./frontend/MassApplication
+    container_name: frontend
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
